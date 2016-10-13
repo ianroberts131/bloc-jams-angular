@@ -29,11 +29,25 @@
             currentSong = song;
         };
         
+        /**
+        * @function playSong
+        * @desc Plays the audio file asociated with the Object song and sets the playing attribute to true
+        * @param {Object} song
+        */
+        var playSong = function(song) {
+            currentBuzzObject.play();
+            song.playing = true;
+        }
+        
+        /**
+        * @function play
+        * @desc Stops the currently playing song and plays the audio file associated with the song passed as the paramter
+        * @param {Object} song
+        */
         SongPlayer.play = function(song) {
             if (currentSong !== song) {
-                setSong(song)
-                currentBuzzObject.play();
-                song.playing = true;
+                setSong(song);
+                playSong(song);
                 
             } else if (currentSong == song) {
                 if (currentBuzzObject.isPaused()) {
@@ -42,6 +56,11 @@
             }
         };
         
+        /**
+        * @function pause
+        * @desc Pauses the currently playing song and sets the playing attribute to 'false'
+        * @param {Object} song
+        */
         SongPlayer.pause = function(song) {
             currentBuzzObject.pause();
             song.playing = false;
