@@ -41,7 +41,7 @@
                 array.push(albumPicasso);
             };
             return array;
-        }
+        };
         
         return Fixtures;
     }
