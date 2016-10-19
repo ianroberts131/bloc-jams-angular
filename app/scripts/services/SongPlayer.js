@@ -78,6 +78,8 @@
         */
         SongPlayer.currentTime = null;
         
+        SongPlayer.volume = 20;
+        
         /**
         * @function play
         * @desc Stops the currently playing song and plays the audio file associated with the song passed as the paramter
@@ -151,6 +153,14 @@
                 currentBuzzObject.setTime(time);
             }
         };
+        
+        SongPlayer.setVolume = function(volume) {
+            if (currentBuzzObject) {
+                currentBuzzObject.setVolume(volume);
+            }
+        };
+        
+        
         
         return SongPlayer;
     };
